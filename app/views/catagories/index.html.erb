@@ -1,0 +1,14 @@
+<h1>Index </h1>
+
+
+<% @catagories.each do |catagory| %>
+  <div class="catagory">
+    <h4>
+  <%= catagory.name %>
+        <li><% catagory.bookmarks.each do |bookmark|%>
+          <%= bookmark.name %>
+        <% end %>
+        </li>
+  </h4>
+  </div>
+<% end  %>

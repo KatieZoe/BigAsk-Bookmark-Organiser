@@ -1,0 +1,13 @@
+<h1> New Bookmark Catagory: </h1>
+
+<%= form_for @catagory do |c| %>
+
+<%= c.label :name %>
+<%= c.text_field :name %>
+
+<%= c.select :sort_option, Catagory.pluck(:sort_option), :include_blank => true %>
+
+<%= c.submit 'add catagory' %>
+
+
+<% end  %>
