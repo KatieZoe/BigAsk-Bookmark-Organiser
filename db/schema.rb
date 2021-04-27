@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 2021_04_23_042214) do
     t.text "name"
     t.text "url"
     t.integer "frequency"
-    t.integer "catagory_id"
+    t.integer "category_id"
   end
 
-  create_table "catagories", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.text "name"
     t.text "sort_option"
     t.integer "frequency"

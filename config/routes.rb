@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'catagories#index'
+  root :to => 'categories#index'
   resources :users, :only => [:new, :create]
 
   #login session routes
@@ -7,5 +7,5 @@ Rails.application.routes.draw do
    post '/login' => 'session#create'
    delete '/login' => 'session#destroy'
 
-   resources :catagories, :index => [:new, :create]
+   resources :categories, :index => [:new, :create]
 end

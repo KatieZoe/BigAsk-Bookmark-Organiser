@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :catagories
-  has_many :bookmarks, through: :catagories
+  has_many :categories
+  has_many :bookmarks, through: :categories
   has_secure_password
 end

@@ -1,3 +1,3 @@
 class Bookmark < ApplicationRecord
-  has_and_belongs_to_many :catagories
+  has_and_belongs_to_many :categories
 end
