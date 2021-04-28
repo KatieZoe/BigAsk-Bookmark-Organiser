@@ -1,8 +1,21 @@
 
 <h1><%= @category.name %></h1>
 
-<ol>
-<li>
-  <%= @category %>
-</li>
-</ol>
+
+<div class="category-control">
+  <%= button_to 'Add bookmark', new_bookmark_path(@catagory), :method => 'get' %>
+  <%= button_to 'Edit category', edit_category_path(@category), :method=> 'get'%>
+  <%= button_to 'Delete category', @category, :method => 'delete', :data => {:confirm => 'Are you sure?'}%>
+</div>
+
+  <ul class="list-group">
+    <% @category.bookmarks.each do |bookmark|%>
+        <li class="list-group-item">
+        <input class="form-check-input me-1" type="checkbox" value=<%= link_to bookmark.name, bookmark.url, target: :_blank %>
+      <div class='hidden'>
+        <%= button_to 'Edit bookmark', edit_bookmark_path(bookmark), :method=> 'get'%>
+        <%= button_to 'Delete bookmark', bookmark, :method => 'delete', :data => {:confirm => 'Are you sure?'}%>
+      </div>
+      <% end %>
+      </li>
+    </ul>

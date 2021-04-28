@@ -20,19 +20,24 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find params[:name]
-    raise 'Hell'
+    @category = Category.find params[:id]
   end
 
   def update
-    category = Category.find params[:name]
+    category = Category.find params[:id]
     category.update category_params
     redirect_to root_path
   end
 
   def destroy
-    category = Category.find params[:name]
-    work.destroy
+    category = Category.find params[:id]
+    bookmarks = category.bookmarks
+    raise 'hell'
+    @current_user.categories.each do |category|
+    default = category.name == 'Unsorted'
+    default << bookmarks
+    end
+    category.destroy
     redirect_to root_path
   end
 

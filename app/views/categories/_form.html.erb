@@ -4,9 +4,9 @@
 <%= c.label :name %>
 <%= c.text_field :name %>
 
-<%= c.select :sort_option, category.pluck(:sort_option), :include_blank => true %>
+<%= c.select :sort_option, ['A to Z', "Newest to Oldest"]%>
 
-<%= c.submit 'add category' %>
+<%= c.submit 'Submit' %>
 
 
 <% end  %>
