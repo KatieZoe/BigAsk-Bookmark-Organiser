@@ -18,13 +18,13 @@ class BookmarksController < ApplicationController
   def update
     bookmark = Bookmark.find params[:id]
     bookmark.update bookmark_params
-    redirect_to category_path
+    redirect_to root_path
   end
 
   def destroy
     bookmark = Bookmark.find params[:id]
     bookmark.destroy
-    redirect_to category_path ##change this to show page later maybe?
+    redirect_to root_path ##change this to show page later maybe?
   end
 
   private

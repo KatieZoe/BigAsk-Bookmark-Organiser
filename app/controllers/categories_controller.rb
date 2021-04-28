@@ -32,10 +32,8 @@ class CategoriesController < ApplicationController
   def destroy
     category = Category.find params[:id]
     bookmarks = category.bookmarks
-    raise 'hell'
-    @current_user.categories.each do |category|
-    default = category.name == 'Unsorted'
-    default << bookmarks
+    bookmarks.each do |bookmark|
+      @current_user.categories.find_by(:name => 'Unsorted').bookmarks << bookmark
     end
     category.destroy
     redirect_to root_path

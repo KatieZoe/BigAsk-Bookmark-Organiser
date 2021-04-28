@@ -1,21 +1,41 @@
 
-<h1><%= @category.name %></h1>
 
 
-<div class="category-control">
-  <%= button_to 'Add bookmark', new_bookmark_path(@catagory), :method => 'get' %>
-  <%= button_to 'Edit category', edit_category_path(@category), :method=> 'get'%>
-  <%= button_to 'Delete category', @category, :method => 'delete', :data => {:confirm => 'Are you sure?'}%>
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="true" href="/bookmarks/new" >Add bookmark</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/bookmarks/new">Edit category</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1">Delete category</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @category.name %></h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="/bookmarks/new" class="btn btn-primary" method="get">Add bookmark</a>
+  </div>
 </div>
+
+  <%= link_to 'Edit category', edit_category_path(@category), {:class => "btn btn-sm btn-outline-secondary mx-2", :method=> 'get'}%>
+  <%= link_to 'Delete category', @category, { :class => "btn btn-sm btn-outline-secondary mx-2", :method => 'delete', :data => {:confirm => 'Are you sure?'}}%>
+
 
   <ul class="list-group">
     <% @category.bookmarks.each do |bookmark|%>
-    <li class="list-group-item">
-    <input class="form-check-input me-1 checkbox" type="checkbox" value=""><%= link_to bookmark.name, bookmark.url, target: :_blank %>
-    <div class="box invisible">
-      <%= button_to 'Edit bookmark', edit_bookmark_path(bookmark), :method=> 'get'%>
-      <%= button_to 'Delete bookmark', bookmark, :method => 'delete', :data => {:confirm => 'Are you sure?'}%>
+    <li class="list-group-item ps-5">
+    <input class="form-check-input me-1 checkbox" type="checkbox" value="">
+    <%= link_to bookmark.name, bookmark.url, target: :_blank%>
+    <div class="box invisible d-grid gap-2 d-md-flex justify-content-md-end" role="group" aria-label="Basic outlined example">
+      <%= button_to 'Edit bookmark', edit_bookmark_path(bookmark), {:class => "btn btn-sm btn-outline-secondary mx-1" , :method=> 'get'}%>
+      <%= button_to 'Delete bookmark', bookmark, :class => "btn btn-sm btn-outline-secondary mx-1", :method => 'delete', :data => {:confirm => 'Are you sure?'}%>
       <% end %>
       </div>
       </li>
     </ul>
+<!--  -->
