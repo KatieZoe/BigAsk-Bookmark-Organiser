@@ -1,13 +1,3 @@
-/* .bookmark  {
-  border: grey;
-  background-color: lightblue;
+.invisible {
+  display: none;
 }
-
-.bookmark-control {
-  display: flex;
-  margin-left: 50%;
-}
-
-.category-control {
-    display: flex;
-} */
