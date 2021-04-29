@@ -1,15 +1,14 @@
+<%= form_for @bookmark, :class => 'mb-3' do |b| %>
 
-<%= form_for @bookmark do |b| %>
+<%= b.label :name, :class => 'form-label'  %>
+<%= b.text_field :name, :class => 'form-control form-field' %>
 
-<%= b.label :name %>
-<%= b.text_field :name %>
+<%= b.label :url, :class => 'form-label'  %>
+<%= b.text_field :url, :class => 'form-control form-field' %>
 
-<%= b.label :url %>
-<%= b.text_field :url %>
+<%= b.label "Add to category", :class => 'form-label'  %>
+<%= b.select :category_id, @current_user.categories.pluck(:name, :id), :include_blank => true, :class => 'form-select form-field' %>
 
-<%= b.label "Add to category" %>
-<%= b.select :category_id, @current_user.categories.pluck(:name, :id), :include_blank => true %>
-
-<%= b.submit 'Submit' %>
+<%= b.submit 'Submit', :class => "btn btn-primary" %>
 
 <% end  %>

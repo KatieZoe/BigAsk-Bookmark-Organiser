@@ -6,6 +6,11 @@
   background-color: darkslategrey;
 }
 
+.container {
+  background-color: azure;
+  min-height: 800px;
+}
+
 h1 {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -13,14 +18,49 @@ h1 {
 
 
 .header a {
-  color: white;
+  color: CadetBlue;
+  margin-left: 8px;
 }
 
-.card.col-4 {
-  background-color: LightGrey;
-  margin: 6px 6px 6px 6px;
+.card.col {
+  background-color: AntiqueWhite;
+  margin: 10px 10px 10px 10px;
+  padding: 0px;
 }
 
 .bookmark-click-count{
-  color: darkslategrey;
+  color: black;
+}
+
+select {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+select {
+  margin-bottom: 20px;
+}
+
+
+
+.bookmark-click-count {
+  margin-left: 20px;
+}
+
+input.checkbox {
+  margin-left: -.10px;
 }

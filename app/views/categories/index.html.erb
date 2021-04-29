@@ -1,8 +1,8 @@
 <h1>Bookmark Categories</h1>
 
 <div class="row">
-  <% @categories.order(:frequency).each do |category| %>
-  <div class="card col-4">
+  <% @categories.each do |category| %>
+  <div class="card col">
     <h4 class="header"><%= link_to category.name, category %></h4>
       <ul>
         <% if category[:sort_option] == 'A to Z' %>

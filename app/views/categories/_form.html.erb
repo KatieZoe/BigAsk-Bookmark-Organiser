@@ -1,12 +1,10 @@
-
 <%= form_for @category, :class => 'mb-3' do |c|%>
 
-<%= c.label :name, :class => 'form-label'%>
-<%= c.text_field :name, :class => "form-control"%>
+<%= c.label :name, :class => 'form-label' %>
+<%= c.text_field :name, :class => 'form-control form-field'%>
 
-<%= c.select :sort_option, ['A to Z', "Newest to Oldest"]%>
+<%= c.select :sort_option, ['A to Z', "Newest to Oldest"], :class => 'form-select form-field' %>
 
-<%= c.submit 'Submit' %>
-
+<%= c.submit 'Submit', :class => "btn btn-primary" %>
 
 <% end  %>
