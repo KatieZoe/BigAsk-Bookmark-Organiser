@@ -1,14 +1,21 @@
 <h1>Bookmark Categories</h1>
 
-
-<% @categories.each do |category| %>
-  <div class="card">
-    <h4 class="card-header"> <%= link_to category.name, category %></h4>
-      <ul class='list-group list-group-flush'>
-        <% category.bookmarks.each do |bookmark|%>
-        <li class="list-group-item">  <%= link_to bookmark.name, bookmark.url, target: :_blank %>
-        <% end %>
+<div class="row">
+  <% @categories.order(:frequency).each do |category| %>
+  <div class="card col-4">
+    <h4 class=""><%= link_to category.name, category %></h4>
+      <ul>
+        <% if category[:sort_option] == 'A to Z' %>
+          <% category.bookmarks.order(:name).each do |bookmark|%>
+            <li class=""><%= link_to bookmark.name, bookmark.url, target: :_blank, :class => 'bookmark-click-count' %>
+          <% end %>
+        <% elsif category[:sort_option] == "Newest to Oldest"%>
+          <% category.bookmarks.order(:id).reverse.each do |bookmark|%>
+            <li class=""><%= link_to bookmark.name, bookmark.url, target: :_blank, :class => 'bookmark-click-count'%>
+          <% end %>
+        <% end  %>
         </li>
-    </ul>
-  </div>
-<% end  %>
+      </ul>
+    </div>
+  <% end  %>
+</div>

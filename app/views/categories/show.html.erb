@@ -1,36 +1,28 @@
 
-
-
 <div class="card text-center">
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="true" href="/bookmarks/new" >Add bookmark</a>
+        <a class="nav-link active" href="<%= edit_category_path(@category) %>">Edit category</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/bookmarks/new">Edit category</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1">Delete category</a>
+        <%= link_to 'Delete category', @category, { :class => "nav-link active", :method => 'delete', :data => {:confirm => 'Are you sure?'}}%>
       </li>
     </ul>
   </div>
   <div class="card-body">
-    <h5 class="card-title"><%= @category.name %></h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <h3 class="card-title"><%= @category.name %></h3>
+    <p class="card-text">Use the checkbox feature to edit or delete bookmarks</p>
     <a href="/bookmarks/new" class="btn btn-primary" method="get">Add bookmark</a>
   </div>
 </div>
-
-  <%= link_to 'Edit category', edit_category_path(@category), {:class => "btn btn-sm btn-outline-secondary mx-2", :method=> 'get'}%>
-  <%= link_to 'Delete category', @category, { :class => "btn btn-sm btn-outline-secondary mx-2", :method => 'delete', :data => {:confirm => 'Are you sure?'}}%>
 
 
   <ul class="list-group">
     <% @category.bookmarks.each do |bookmark|%>
     <li class="list-group-item ps-5">
     <input class="form-check-input me-1 checkbox" type="checkbox" value="">
-    <%= link_to bookmark.name, bookmark.url, target: :_blank%>
+    <%= link_to bookmark.name, bookmark.url, target: :_blank, :class => 'bookmark-click-count'%>
     <div class="box invisible d-grid gap-2 d-md-flex justify-content-md-end" role="group" aria-label="Basic outlined example">
       <%= button_to 'Edit bookmark', edit_bookmark_path(bookmark), {:class => "btn btn-sm btn-outline-secondary mx-1" , :method=> 'get'}%>
       <%= button_to 'Delete bookmark', bookmark, :class => "btn btn-sm btn-outline-secondary mx-1", :method => 'delete', :data => {:confirm => 'Are you sure?'}%>
@@ -38,4 +30,3 @@
       </div>
       </li>
     </ul>
-<!--  -->
