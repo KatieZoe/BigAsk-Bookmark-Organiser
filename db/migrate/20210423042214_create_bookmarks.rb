@@ -5,7 +5,7 @@ class CreateBookmarks < ActiveRecord::Migration[5.2]
       t.text :url
       t.integer :frequency
       t.integer :category_id
-      t.timestamp
+      t.timestamps
     end
   end
 end

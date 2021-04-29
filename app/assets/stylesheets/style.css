@@ -10,3 +10,17 @@ h1 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+
+.header a {
+  color: white;
+}
+
+.card.col-4 {
+  background-color: LightGrey;
+  margin: 6px 6px 6px 6px;
+}
+
+.bookmark-click-count{
+  color: darkslategrey;
+}

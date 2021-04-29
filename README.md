@@ -1,24 +1,5 @@
-# README
+# BigAsk - Bookmark Organiser
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Things I want to add in next version:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* frequency tracker through JQuery to count bookmark clicks and add them to category frequency column then order by most used or top 3 etc.

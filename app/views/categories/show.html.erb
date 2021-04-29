@@ -19,14 +19,27 @@
 
 
   <ul class="list-group">
-    <% @category.bookmarks.each do |bookmark|%>
-    <li class="list-group-item ps-5">
-    <input class="form-check-input me-1 checkbox" type="checkbox" value="">
-    <%= link_to bookmark.name, bookmark.url, target: :_blank, :class => 'bookmark-click-count'%>
-    <div class="box invisible d-grid gap-2 d-md-flex justify-content-md-end" role="group" aria-label="Basic outlined example">
-      <%= button_to 'Edit bookmark', edit_bookmark_path(bookmark), {:class => "btn btn-sm btn-outline-secondary mx-1" , :method=> 'get'}%>
-      <%= button_to 'Delete bookmark', bookmark, :class => "btn btn-sm btn-outline-secondary mx-1", :method => 'delete', :data => {:confirm => 'Are you sure?'}%>
+    <% if @category[:sort_option] == 'A to Z' %>
+      <% @category.bookmarks.order(:name).each do |bookmark|%>
+        <li class="list-group-item ps-5">
+        <input class="form-check-input me-1 checkbox" type="checkbox" value="">
+          <%= link_to bookmark.name, bookmark.url, target: :_blank, :class => 'bookmark-click-count' %>
+            <div class="box invisible d-grid gap-2 d-md-flex justify-content-md-end" role="group" aria-label="Basic outlined example">
+              <%= button_to 'Edit bookmark', edit_bookmark_path(bookmark), {:class => "btn btn-sm btn-outline-secondary mx-1" , :method=> 'get'}%>
+              <%= button_to 'Delete bookmark', bookmark, :class => "btn btn-sm btn-outline-secondary mx-1", :method => 'delete', :data => {:confirm => 'Are you sure?'}%>
+            </div>
+          </li>
+        <% end %>
+    <% elsif @category[:sort_option] == "Newest to Oldest"%>
+      <% @category.bookmarks.order('created_at desc').each do |bookmark|%>
+        <li class="list-group-item ps-5">
+        <input class="form-check-input me-1 checkbox" type="checkbox" value="">
+          <%= link_to bookmark.name, bookmark.url, target: :_blank, :class => 'bookmark-click-count' %>
+            <div class="box invisible d-grid gap-2 d-md-flex justify-content-md-end" role="group" aria-label="Basic outlined example">
+              <%= button_to 'Edit bookmark', edit_bookmark_path(bookmark), {:class => "btn btn-sm btn-outline-secondary mx-1" , :method=> 'get'}%>
+              <%= button_to 'Delete bookmark', bookmark, :class => "btn btn-sm btn-outline-secondary mx-1", :method => 'delete', :data => {:confirm => 'Are you sure?'}%>
+            </div>
+          </li>
       <% end %>
-      </div>
-      </li>
+    <% end %>
     </ul>

@@ -8,7 +8,7 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.create bookmark_params
-    redirect_to root_path
+    redirect_to category_path(@bookmark.category_id)
   end
 
   def edit
@@ -18,13 +18,13 @@ class BookmarksController < ApplicationController
   def update
     bookmark = Bookmark.find params[:id]
     bookmark.update bookmark_params
-    redirect_to root_path
+    redirect_to category_path(bookmark.category_id)
   end
 
   def destroy
     bookmark = Bookmark.find params[:id]
     bookmark.destroy
-    redirect_to root_path ##change this to show page later maybe?
+    redirect_to category_path(bookmark.category_id)
   end
 
   private

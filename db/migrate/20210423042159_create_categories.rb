@@ -5,7 +5,7 @@ class CreateCategories < ActiveRecord::Migration[5.2]
       t.text :sort_option
       t.integer :frequency
       t.integer :user_id
-      t.timestamp
+      t.timestamps
     end
   end
 end
