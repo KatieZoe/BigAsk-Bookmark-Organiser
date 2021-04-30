@@ -1,8 +1,9 @@
-<h1>Bookmark Categories</h1>
+<h1 class="bookmark-heading">Bookmark Categories</h1>
 
+<div class="index">
 <div class="row">
   <% @categories.each do |category| %>
-  <div class="card col">
+  <div class="card col-3">
     <h4 class="header"><%= link_to category.name, category %></h4>
       <ul>
         <% if category[:sort_option] == 'A to Z' %>
@@ -18,4 +19,5 @@
       </ul>
     </div>
   <% end  %>
+</div>
 </div>
