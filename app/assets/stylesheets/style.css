@@ -17,15 +17,20 @@ h1.bookmark-heading {
   padding-bottom: 10px;
 }
 
+h4.header {
+    padding-top: 10px;
+}
 
 .header a {
-  color: CadetBlue;
+  color: #6c757d;
   margin-left: 8px;
+
 }
 
 .card.col-3 {
   background-color: AntiqueWhite;
   margin: 10px 10px 10px 20px;
+  min-height: 150px;
 }
 
 div.row {
