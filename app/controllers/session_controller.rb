@@ -3,6 +3,7 @@ class SessionController < ApplicationController
   def new
   end
 
+  #creates a session based on the user status
   def create
     user = User.find_by :email => params[:email]
     if user.present? && user.authenticate(params[:password])

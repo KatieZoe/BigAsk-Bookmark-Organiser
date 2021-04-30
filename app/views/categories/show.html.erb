@@ -1,4 +1,4 @@
-
+<!-- Bootstrap formatting and links to edit and delete category as well as display of category heading -->
 <div class="card text-center">
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
@@ -17,13 +17,16 @@
   </div>
 </div>
 
-
+<!-- code block to display bookmarks using boostrap formatting -->
   <ul class="list-group">
+    <!-- begining of IF/ELSE statement to accomodate for sort option for display of bookmarks -->
     <% if @category[:sort_option] == 'A to Z' %>
+    <!-- loops to display bookmarks for corresponding category-->
       <% @category.bookmarks.order(:name).each do |bookmark|%>
         <li class="list-group-item ps-5">
         <input class="form-check-input me-1 checkbox" type="checkbox" value="">
           <%= link_to bookmark.name, bookmark.url, target: :_blank, :class => 'bookmark-click-count' %>
+          <!-- Buttons to edit or delete a bookmark using jquery to show and hide on checkbox selection -->
             <div class="box invisible d-grid gap-2 d-md-flex justify-content-md-end" role="group" aria-label="Basic outlined example">
               <%= button_to 'Edit bookmark', edit_bookmark_path(bookmark), {:class => "btn btn-sm btn-outline-secondary mx-1" , :method=> 'get'}%>
               <%= button_to 'Delete bookmark', bookmark, :class => "btn btn-sm btn-outline-secondary mx-1", :method => 'delete', :data => {:confirm => 'Are you sure?'}%>

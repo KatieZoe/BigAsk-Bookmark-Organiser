@@ -32,6 +32,7 @@ class CategoriesController < ApplicationController
   def destroy
     category = Category.find params[:id]
     bookmarks = category.bookmarks
+    #loop to add bookmarks from deleted category to unsorted before destroying category 
     bookmarks.each do |bookmark|
       @current_user.categories.find_by(:name => 'Unsorted').bookmarks << bookmark
     end

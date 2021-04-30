@@ -11,7 +11,7 @@
   </head>
 
   <body>
-
+    <!-- Nav bar with Bootstrap formatting -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="/">BigAsk</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +20,7 @@
 
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+        <!-- IF/ELSE Statement for display of sign in/login links or logout/new category links depending on status of user -->
         <% if @current_user.present? %>
             <li class="nav-item">
               <%= link_to "New Category", new_category_path, :class => 'nav-link' %>

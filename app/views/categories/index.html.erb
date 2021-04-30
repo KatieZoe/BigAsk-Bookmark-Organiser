@@ -2,11 +2,14 @@
 
 <div class="index">
 <div class="row">
+  <!-- loop to display all categories for current user -->
   <% @categories.each do |category| %>
   <div class="card col-3">
     <h4 class="header"><%= link_to category.name, category %></h4>
       <ul>
+        <!-- if/else statement to utilise sort option selection -->
         <% if category[:sort_option] == 'A to Z' %>
+          <!-- loop to display all bookmark links within a category -->
           <% category.bookmarks.order(:name).each do |bookmark|%>
             <li class=""><%= link_to bookmark.name, bookmark.url, target: :_blank, :class => 'bookmark-click-count' %>
           <% end %>
