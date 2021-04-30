@@ -26,7 +26,7 @@ This project has given me a sound confidence in all of the above and more experi
 
 I really enjoyed creating this application over the week. I had a lot of ideas on how I would like to see 'BigAsk' in it's final form. Below I have listed some more features I would like to add to my web application in version 2:
 
-* A Frequency tracker using JQuery to count bookmark clicks and add them to the bookmark frequency column and then totalling all bookmark clicks in the category frequency column. Then I would use the counts to create a function to order by most used to least used or top 3 and display them at the top of the page.
+* A frequency tracker using JQuery to count bookmark clicks and add them to the bookmark frequency column and then totalling all bookmark clicks in the category frequency column. Then I would use the counts to create a function to order by most used to least used or top 3 and display them at the top of the page.
 
 * A display of top 5 bookmarks (not specific to one category) in a carousel with an option for the user to add more to the carousel if they choose to.
 
